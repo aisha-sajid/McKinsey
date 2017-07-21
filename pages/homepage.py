@@ -1,4 +1,4 @@
-from common.utils import USERNAME, PASSWORD, AUTH_PASSWORD, AUTH_USER
+from common.utils import AUTH_PASSWORD, AUTH_USER
 from bok_choy.page_object import PageObject
 from pages.sign_in_page import SignInPage
 
