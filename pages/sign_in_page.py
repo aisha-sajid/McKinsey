@@ -10,7 +10,7 @@ class SignInPage(PageObject):
     url = None
 
     def is_browser_on_page(self):
-        return self.q(css="").visible
+        return self.q(css=".normal-login>#id_username").visible
 
     def enter_login_username(self):
         """
@@ -24,11 +24,11 @@ class SignInPage(PageObject):
         fill password field with password
         :return:
         """
-        self.q(css="").fill(PASSWORD)
+        self.q(css=".normal-login>#id_password").fill(PASSWORD)
 
     def click_login_button(self):
         """
         Click login button
         :return:
         """
-        self.q(css="").click()
+        self.q(css=".button").click()
