@@ -7,7 +7,7 @@ class Homepage(PageObject):
     """
     Studio Homepage
     """
-    url = 'https.//{}:{}@qa.mckinsey.edx.org/admin/'.format('mckinsey','academy')
+    url = 'https.//{}:{}@qa.mckinsey.edx.org/'.format('mckinsey','academy')
 
     def is_browser_on_page(self):
         return self.q(css=".login-btn").visible

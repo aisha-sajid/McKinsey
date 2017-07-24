@@ -22,8 +22,8 @@ class TestLogin(WebAppTest):
         self.sign_in_page = SignInPage(self.browser)
         self.dashboard = Dashboard(self.browser)
 
-        self.studio_homepage.visit()
-        self.studio_homepage.sign_in()
+        self.homepage.visit()
+        self.homepage.sign_in()
 
     def click_sign_in_homepage(self):
         """
