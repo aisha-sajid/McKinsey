@@ -1,5 +1,6 @@
-from common.utils import USERNAME, PASSWORD
+from common.utils import ADMIN_USERNAME, ADMIN_PASSWORD
 from bok_choy.page_object import PageObject
+from pages.dashboard import Dashboard
 
 
 class SignInPage(PageObject):
@@ -32,3 +33,13 @@ class SignInPage(PageObject):
         :return:
         """
         self.q(css=".button").click()
+        Dashboard(self.browser).wait_for_page()
+
+    def login(self):
+        """
+		login a user
+		"""
+
+        self.enter_login_email()
+        self.enter_login_password()
+        self.click_sign_in_button()
