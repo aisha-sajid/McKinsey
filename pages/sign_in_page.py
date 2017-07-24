@@ -18,14 +18,14 @@ class SignInPage(PageObject):
         fill username field with user's username
         :return:
         """
-        self.q(css="").fill(USERNAME)
+        self.q(css="").fill(ADMIN_USERNAME)
 
     def enter_login_password(self):
         """
         fill password field with password
         :return:
         """
-        self.q(css=".normal-login>#id_password").fill(PASSWORD)
+        self.q(css=".normal-login>#id_password").fill(ADMIN_PASSWORD)
 
     def click_login_button(self):
         """
@@ -37,8 +37,8 @@ class SignInPage(PageObject):
 
     def login(self):
         """
-		login a user
-		"""
+        login a user
+        """
 
         self.enter_login_email()
         self.enter_login_password()
