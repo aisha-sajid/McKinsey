@@ -2,7 +2,6 @@ from bok_choy.page_object import PageObject
 from pages.participantspage import ParticipantsPage
 
 
-
 class Dashboard(PageObject):
 
     url = 'https.//{}:{}@qa.mckinsey.edx.org/admin/'.format('mckinsey', 'academy')

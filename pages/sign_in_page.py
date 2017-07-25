@@ -18,7 +18,7 @@ class SignInPage(PageObject):
         fill username field with user's username
         :return:
         """
-        self.q(css="").fill(ADMIN_USERNAME)
+        self.q(css=".normal-login>#id_username").fill(ADMIN_USERNAME)
 
     def enter_login_password(self):
         """

@@ -8,7 +8,7 @@ from pages.dashboard import Dashboard
 
 class TestLogin(WebAppTest):
     """
-    Test Studio Site
+    Test User login
     """
 
     def setUp(self):
@@ -23,22 +23,14 @@ class TestLogin(WebAppTest):
         self.dashboard = Dashboard(self.browser)
 
         self.homepage.visit()
-        self.homepage.sign_in()
 
-    def click_sign_in_homepage(self):
+    def test_login(self):
         """
         Click Sign in button on McKinsey Homepage
         :return:
         """
 
         self.homepage.click_login()
-
-    def login(self):
-        """
-        login the user to studio
-        :return:
-        """
-
         self.sign_in_page.login()
 
 

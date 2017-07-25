@@ -7,7 +7,7 @@ from pages.participantspage import ParticipantsPage
 
 class TestAddParticipant(WebAppTest):
     """
-
+    This test adds a new participant
     """
 
     def setUp(self):
@@ -18,13 +18,17 @@ class TestAddParticipant(WebAppTest):
 
         self.dashboard.visit()
 
-    def add_participant(self):
+    def test_add_participant(self):
 
         self.dashboard.click_participants()
         self.participantspage.wait_for_page()
 
         self.participantspage.click_add_participant()
+        self.participantspage.fill_participant_form()
 
+        self.upload_message = self.participantspage.is_success()
+
+        self.assertEqual(self.upload_message.text, "Successfully added new user!", None)
 
 
 if __name__ == '__main__':
