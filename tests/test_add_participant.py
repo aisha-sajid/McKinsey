@@ -17,6 +17,7 @@ class TestAddParticipant(WebAppTest):
         self.participantspage = ParticipantsPage(self.browser)
 
         self.dashboard.visit()
+        self.dashboard.click_admin()
 
     def test_add_participant(self):
 
