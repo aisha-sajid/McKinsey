@@ -1,4 +1,5 @@
 from bok_choy.page_object import PageObject
+from common.utils import AUTH_PASSWORD, AUTH_USER
 from common.utils import FIRST_NAME, LAST_NAME, USER_EMAIL, COMPANY, COURSE_ID
 
 
@@ -7,7 +8,7 @@ class ParticipantsPage(PageObject):
     Participants page in admin view
     """
 
-    url = 'https.//{}:{}@qa.mckinsey.edx.org/admin/participants/'.format('mckinsey', 'academy')
+    url = 'https.//{}:{}@qa.mckinsey.edx.org/admin/participants/'.format(AUTH_USER ,AUTH_PASSWORD)
 
     def is_browser_on_page(self):
         return self.q(css="a[href*='/admin/participants']").visible
@@ -31,15 +32,15 @@ class ParticipantsPage(PageObject):
         self.q(css=".emailActivationCheckbox").click()
         self.q(css=".button.addSingleParticipantButton").click()
 
-    def is_success(self):
+    def get_success_message(self):
         """
 
         :return:
         """
 
-        self.upload_message = self.q(css= ".upload_message")
+        upload_message = self.q(css= ".upload_message").text
 
-        return self.upload_message
+        return upload_message
 
 
 

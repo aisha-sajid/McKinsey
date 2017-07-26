@@ -1,11 +1,12 @@
-ADMIN_USERNAME = "admin_user"
-ADMIN_PASSWORD = "PassworD12!@"
+import os
 
-AUTH_USER = "mckinsey"
-AUTH_PASSWORD = "academy"
+USERNAME = os.environ.get('USERNAME', None)
+PASSWORD = os.environ.get('PASSWORD', None)
+
+AUTH_USER = os.environ.get('AUTH_USER', None)
+AUTH_PASSWORD = os.environ.get('AUTH_PASSWORD', None)
 
 USER_EMAIL = "esamson@dispostable.com"
-USER_PASSWORD = "Testing_1234$"
 FIRST_NAME = "Eric"
 LAST_NAME = "Samson"
 COMPANY = "27"

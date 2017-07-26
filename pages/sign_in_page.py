@@ -1,4 +1,4 @@
-from common.utils import ADMIN_USERNAME, ADMIN_PASSWORD
+from common.utils import USERNAME, PASSWORD
 from bok_choy.page_object import PageObject
 from pages.dashboard import Dashboard
 
@@ -18,14 +18,14 @@ class SignInPage(PageObject):
         fill username field with user's username
         :return:
         """
-        self.q(css=".normal-login>#id_username").fill(ADMIN_USERNAME)
+        self.q(css=".normal-login>#id_username").fill(USERNAME)
 
     def enter_login_password(self):
         """
         fill password field with password
         :return:
         """
-        self.q(css=".normal-login>#id_password").fill(ADMIN_PASSWORD)
+        self.q(css=".normal-login>#id_password").fill(PASSWORD)
 
     def click_login_button(self):
         """

@@ -26,9 +26,9 @@ class TestAddParticipant(WebAppTest):
         self.participantspage.click_add_participant()
         self.participantspage.fill_participant_form()
 
-        self.upload_message = self.participantspage.is_success()
+        success_message = self.participantspage.get_success_message()
 
-        self.assertEqual(self.upload_message.text, "Successfully added new user!", None)
+        self.assertEqual(success_message, "Successfully added new user!")
 
 
 if __name__ == '__main__':
