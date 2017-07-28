@@ -1,10 +1,11 @@
+from common.utils import AUTH_PASSWORD, AUTH_USER
 from bok_choy.page_object import PageObject
 from pages.participantspage import ParticipantsPage
 
 
 class Dashboard(PageObject):
 
-    url = None
+    url = 'https://{}:{}@qa.mckinsey.edx.org/'.format('mckinsey','academy')
 
     def is_browser_on_page(self):
         return self.q(css="a[href*='/admin']").visible
@@ -46,6 +47,22 @@ class Dashboard(PageObject):
         :return:
         """
 
-    
+    def is_course_complete(self):
+        """
 
+        :return:
+        """
+        course_status = self.q(css=".lesson-progress").text
 
+        if course_status != "Completed":
+            return 0
+        else:
+            return 1
+
+    def get_lessons(self):
+        """
+
+        :return:
+        """
+        lessons_list = self.q(css="a.card-flip>div.background-white>div.lesson-progress, :not(a.card-flip>div.front.background-white>div.lesson-progress.complete")
+        return lessons_list.__len__()

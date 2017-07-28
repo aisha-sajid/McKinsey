@@ -8,7 +8,7 @@ class ParticipantsPage(PageObject):
     Participants page in admin view
     """
 
-    url = 'https.//{}:{}@qa.mckinsey.edx.org/admin/participants/'.format(AUTH_USER ,AUTH_PASSWORD)
+    url = 'https://{}:{}@qa.mckinsey.edx.org/admin/participants/'.format(AUTH_USER ,AUTH_PASSWORD)
 
     def is_browser_on_page(self):
         return self.q(css="a[href*='/admin/participants']").visible
