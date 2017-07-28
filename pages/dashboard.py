@@ -24,4 +24,28 @@ class Dashboard(PageObject):
         self.q(css="a[href*='/admin/participants']").click()
         ParticipantsPage(self.browser).wait_for_page()
 
+    def select_course(self):
+        """
+
+        :return:
+        """
+        self.q(css=".course-name").click()
+
+    def get_total_progress(self):
+        """
+
+        :return:
+        """
+        total_progress = self.q(css=".total").text
+
+        return total_progress
+
+    def select_lesson(self):
+        """
+        
+        :return:
+        """
+
+    
+
 
