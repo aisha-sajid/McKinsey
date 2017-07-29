@@ -40,6 +40,6 @@ class SignInPage(PageObject):
         login a user
         """
 
-        self.enter_login_email()
+        self.enter_login_username()
         self.enter_login_password()
-        self.click_sign_in_button()
+        self.click_login_button()

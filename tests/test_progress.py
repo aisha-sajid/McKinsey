@@ -2,7 +2,8 @@ import unittest
 
 from bok_choy.web_app_test import WebAppTest
 from pages.dashboard import Dashboard
-from pages.participantspage import ParticipantsPage
+from pages.homepage import Homepage
+from pages.sign_in_page import SignInPage
 
 
 class TestProgress(WebAppTest):
@@ -13,11 +14,14 @@ class TestProgress(WebAppTest):
     def setUp(self):
 
         super(TestProgress, self).setUp()
+        self.homepage = Homepage(self.browser)
+        self.sign_in_page = SignInPage(self.browser)
         self.dashboard = Dashboard(self.browser)
-        self.participantspage = ParticipantsPage(self.browser)
 
-        self.dashboard.visit()
-        self.dashboard.click_admin()
+        self.homepage.visit()
+        self.homepage.click_login()
+        self.sign_in_page.login()
+
 
     def test_progress_persistence(self):
         """
@@ -28,6 +32,14 @@ class TestProgress(WebAppTest):
 
     def test_progress_increase(self):
         """
-        
+
         :return:
         """
+
+        initial_progress = self.dashboard.get_total_progress()
+        print self.dashboard.get_lessons()
+
+
+
+if __name__ == '__main__':
+    unittest.main()

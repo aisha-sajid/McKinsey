@@ -5,7 +5,7 @@ from pages.participantspage import ParticipantsPage
 
 class Dashboard(PageObject):
 
-    url = 'https://{}:{}@qa.mckinsey.edx.org/'.format('mckinsey','academy')
+    url = None
 
     def is_browser_on_page(self):
         return self.q(css="a[href*='/admin']").visible
