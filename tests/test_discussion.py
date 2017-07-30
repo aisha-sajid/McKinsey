@@ -5,6 +5,7 @@ from pages.dashboard import Dashboard
 from pages.homepage import Homepage
 from pages.sign_in_page import SignInPage
 from pages.discussionspage import DiscussionsPage
+from common.utils import TITLE_TEXT, POST_TEXT
 
 
 class TestDiscussion(WebAppTest):
@@ -38,7 +39,10 @@ class TestDiscussion(WebAppTest):
         self.discussion_page.add_title()
         self.discussion_page.add_post_text()
         self.discussion_page.click_submit()
-    
+
+        assert TITLE_TEXT in self.discussion_page.get_discussion_title_text()
+        assert POST_TEXT in self.discussion_page.get_discussion_post_text()
+
 
 
 

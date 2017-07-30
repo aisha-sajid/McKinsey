@@ -54,5 +54,20 @@ class DiscussionsPage(PageObject):
         :return:
         """
 
+    def get_discussion_title_text(self):
+        """
+
+        :return:
+        """
+        return self.q(css=".discussion-post>.post-header>.post-header-content>.post-title").text
+
+    def get_discussion_post(self):
+        """
+
+        :return:
+        """
+        return self.q(css="div.post-body>p").text
+    
+
 
 
