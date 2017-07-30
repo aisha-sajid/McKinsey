@@ -11,3 +11,8 @@ FIRST_NAME = "Eric"
 LAST_NAME = "Samson"
 COMPANY = "27"
 COURSE_ID = "abc/abc000/2016"
+
+TITLE_TEXT = "This is my Title"
+POST_TEXT = "This is my first Post"
+
+NO_OF_MODULES_TO_ATTEMPT = os.environ.get('NO_OF_MODULES_TO_ATTEMPT', 1)

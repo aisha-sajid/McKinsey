@@ -10,7 +10,7 @@ from common.utils import TITLE_TEXT, POST_TEXT
 
 class TestEngagement(WebAppTest):
     """
-    This class tests the discussions page
+    This class tests the student's engagement in a course
     """
 
     def setUp(self):
@@ -44,6 +44,10 @@ class TestEngagement(WebAppTest):
         final_engagement = self.dashboard.get_total_engagement()
 
         self.assertEqual(initial_engagement+10, final_engagement)
+
+
+if __name__ == '__main__':
+    unittest.main()
 
 
 

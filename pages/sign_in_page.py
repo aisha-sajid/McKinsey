@@ -35,6 +35,7 @@ class SignInPage(PageObject):
         self.q(css=".button").click()
         Dashboard(self.browser).wait_for_page()
 
+
     def login(self):
         """
         login a user

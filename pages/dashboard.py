@@ -2,6 +2,7 @@ from common.utils import AUTH_PASSWORD, AUTH_USER
 from bok_choy.page_object import PageObject
 from pages.participantspage import ParticipantsPage
 from pages.discussionspage import DiscussionsPage
+from pages.lessons_page import LessonsPage
 
 
 class Dashboard(PageObject):
@@ -32,6 +33,7 @@ class Dashboard(PageObject):
         :return:
         """
         self.q(css=".course-name").click()
+        self.q(css=".course-name").nth()
 
     def get_total_progress(self):
         """
@@ -41,12 +43,6 @@ class Dashboard(PageObject):
         total_progress = self.q(css=".course-progress>.visualization>.total").text
 
         return total_progress
-
-    def select_lesson(self):
-        """
-        
-        :return:
-        """
 
     def is_course_complete(self):
         """
@@ -59,14 +55,6 @@ class Dashboard(PageObject):
             return 0
         else:
             return 1
-
-    def get_lessons(self):
-        """
-
-        :return:
-        """
-        lessons_list = self.q(css="")
-        return lessons_list.__len__()
 
     def click_discussion_icon(self):
         """
@@ -82,3 +70,28 @@ class Dashboard(PageObject):
         :return:
         """
         return self.q(css=".course-engagement>.visualization>.total").text
+
+    def click_lessons_icon(self):
+        """
+
+        :return:
+        """
+        self.q(css="ul.course-tabs>li>a.nav-1[href*='/lesson']").click()
+
+    def get_lessons(self):
+        """
+
+        :return:
+        """
+        lessons_list = self.q(css=".lesson-row-item>.lesson-item-name>a")
+        return lessons_list
+
+    def go_to_lesson(self, lesson):
+        """
+
+        :return:
+        """
+        lesson.click()
+        LessonsPage(self.browser).wait_for_page()
+
+
