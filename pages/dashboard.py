@@ -1,6 +1,7 @@
 from common.utils import AUTH_PASSWORD, AUTH_USER
 from bok_choy.page_object import PageObject
 from pages.participantspage import ParticipantsPage
+from pages.discussionspage import DiscussionsPage
 
 
 class Dashboard(PageObject):
@@ -37,7 +38,7 @@ class Dashboard(PageObject):
 
         :return:
         """
-        total_progress = self.q(css=".total").text
+        total_progress = self.q(css=".course-progress>.visualization>.total").text
 
         return total_progress
 
@@ -64,5 +65,13 @@ class Dashboard(PageObject):
 
         :return:
         """
-        lessons_list = self.q(css="a.card-flip>div.background-white>div.lesson-progress, :not(a.card-flip>div.front.background-white>div.lesson-progress.complete")
+        lessons_list = self.q(css="")
         return lessons_list.__len__()
+
+    def click_discussion_icon(self):
+        """
+
+        :return:
+        """
+        self.q(css="a[href*='/discussion']").click()
+        DiscussionsPage(self.browser).wait_for_page()
