@@ -67,7 +67,29 @@ class DiscussionsPage(PageObject):
         :return:
         """
         return self.q(css="div.post-body>p").text
-    
+
+    def add_search_text(self):
+        """
+
+        :return:
+        """
+        self.q(css=".field-input.input-text.search-input").fill(TITLE_TEXT)
+
+    def click_search_button(self):
+        """
+
+        :return:
+        """
+        self.q(css=".search-btn").click()
+        self.wait_for_ajax()
+
+    def get_title_in_search_results(self):
+        """
+
+        :return:
+        """
+        return self.q(css=".forum-nav-thread-title").text
+
 
 
 

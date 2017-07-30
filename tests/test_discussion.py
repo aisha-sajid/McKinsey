@@ -43,6 +43,20 @@ class TestDiscussion(WebAppTest):
         assert TITLE_TEXT in self.discussion_page.get_discussion_title_text()
         assert POST_TEXT in self.discussion_page.get_discussion_post_text()
 
+    def test_search_post(self):
+        """
+
+        :return:
+        """
+        self.dashboard.click_discussion_icon()
+        self.discussion_page.add_search_text()
+        self.discussion_page.click_search_button()
+
+        assert TITLE_TEXT in self.discussion_page.get_title_in_search_results()
+
+    
+
+
 
 
 
