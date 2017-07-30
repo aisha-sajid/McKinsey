@@ -75,3 +75,10 @@ class Dashboard(PageObject):
         """
         self.q(css="a[href*='/discussion']").click()
         DiscussionsPage(self.browser).wait_for_page()
+
+    def get_total_engagement(self):
+        """
+
+        :return:
+        """
+        return self.q(css=".course-engagement>.visualization>.total").text

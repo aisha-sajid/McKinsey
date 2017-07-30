@@ -10,6 +10,16 @@ class DiscussionsPage(PageObject):
     def is_browser_on_page(self):
         return self.q(css=".forum-content").visible
 
+    def add_new_post(self):
+        """
+
+        :return:
+        """
+        self.click_add_post()
+        self.add_title()
+        self.add_post_text()
+        self.click_submit()
+
     def click_add_post(self):
         """
 
@@ -89,6 +99,15 @@ class DiscussionsPage(PageObject):
         :return:
         """
         return self.q(css=".forum-nav-thread-title").text
+
+    def click_course_name(self):
+        """
+
+        :return:
+        """
+        self.q(css=".course_info>.course-name>a[href*='/course']").click()
+        self.wait_for_ajax()
+
 
 
 

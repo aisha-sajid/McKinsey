@@ -8,7 +8,7 @@ from pages.discussionspage import DiscussionsPage
 from common.utils import TITLE_TEXT, POST_TEXT
 
 
-class TestDiscussion(WebAppTest):
+class TestEngagement(WebAppTest):
     """
     This class tests the discussions page
     """
@@ -18,7 +18,7 @@ class TestDiscussion(WebAppTest):
 
         :return:
         """
-        super(TestDiscussion, self).setUp()
+        super(TestEngagement, self).setUp()
         self.homepage = Homepage(self.browser)
         self.sign_in_page = SignInPage(self.browser)
         self.dashboard = Dashboard(self.browser)
@@ -29,35 +29,21 @@ class TestDiscussion(WebAppTest):
         self.sign_in_page.login()
         self.dashboard.select_course()
 
-    def test_add_post(self):
+    def test_engagement_increase(self):
         """
 
         :return:
         """
+        initial_engagement = self.dashboard.get_total_engagement()
+
         self.dashboard.click_discussion_icon()
         self.discussion_page.click_add_post()
         self.discussion_page.add_new_post()
+        self.discussion_page.click_course_name()
 
-        assert TITLE_TEXT in self.discussion_page.get_discussion_title_text()
-        assert POST_TEXT in self.discussion_page.get_discussion_post_text()
+        final_engagement = self.dashboard.get_total_engagement()
 
-    def test_search_post(self):
-        """
-
-        :return:
-        """
-        self.dashboard.click_discussion_icon()
-        self.discussion_page.add_search_text()
-        self.discussion_page.click_search_button()
-
-        assert TITLE_TEXT in self.discussion_page.get_title_in_search_results()
-
-
-
-
-
-
-
+        self.assertEqual(initial_engagement+10, final_engagement)
 
 
 
